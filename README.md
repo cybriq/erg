@@ -63,3 +63,10 @@ converges all transactions between N/2 and N/4 cycles.
 
 In other words, this network counters the factorial expansion with powers of two, which is still not linear but it's a
 lot less than factorial.
+
+It works because every node's view should be partially the same, and probability guarantees that in 4 steps, 25% of
+events are in their correct relative sequence. If the system receives transactions no more frequently than 800ms/node,
+or 4 cycles per node, the system converges as soon as the average falls back under 1 per 4 cycles within 4 cycles.
+
+If each individual node simply delays accepting transactions until the 4 cycles, the network is 100% consensus 800ms
+after the last transaction is accepted.
